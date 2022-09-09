@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: coffee_shop
+    database: jaffle_shop_raw
+    schema: ecommerce
+    tables:
+      - name: customers
+      - name: locations
+      - name: order_items
+      - name: orders
+      - name: products
