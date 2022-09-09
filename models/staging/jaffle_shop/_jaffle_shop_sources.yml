@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: coffee_shop
+  - name: jaffle_shop
     database: jaffle_shop_raw
     schema: ecommerce
     tables:

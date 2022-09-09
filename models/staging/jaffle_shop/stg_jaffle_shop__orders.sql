@@ -1,20 +1,20 @@
 
 with source as (
 
-    select * from {{ source('coffee_shop', 'orders') }}
+    select * from {{ source('jaffle_shop', 'orders') }}
 
 ),
 
 renamed as (
 
     select
-        value,
-        id,
+        id as order_id,
         location_id,
         customer_id,
-        ordered_at,
         order_total,
-        tax_paid
+        tax_paid,
+        ordered_at,
+        value as order_data
 
     from source
 

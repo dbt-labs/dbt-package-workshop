@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: Staging model for the customers data from our jaffle shop
+    columns:
+      - name: customer_id
+        tests: 
+          - unique
+          - not_null 
+          
+  - name: stg_jaffle_shop__locations
+    description: Staging model for the locations data from our jaffle shop
+    columns:
+      - name: location_id
+        tests: 
+          - unique
+          - not_null 
+          
+  - name: stg_jaffle_shop__order_items
+    description: Staging model for the order_items data from our jaffle shop
+    columns:
+      - name: order_item_id
+        tests: 
+          - unique
+          - not_null 
+          
+  - name: stg_jaffle_shop__orders
+    description: Staging model for the orders data from our jaffle shop
+    columns:
+      - name: order_id
+        tests: 
+          - unique
+          - not_null 
+          
+  - name: stg_jaffle_shop__products
+    description: Staging model for the products data from our jaffle shop
+    columns:
+      - name: product_id
+        tests: 
+          - unique
+          - not_null 
+          
