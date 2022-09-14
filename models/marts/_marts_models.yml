@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: Summary information for all customers in our Jaffle Shop point of sale system
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_orders
+    description: Summary information for all orders placed in our Jaffle Shop point of sale system
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+    

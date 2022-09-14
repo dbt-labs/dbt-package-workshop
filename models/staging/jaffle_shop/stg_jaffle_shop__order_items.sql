@@ -10,7 +10,7 @@ renamed as (
     select
         id as order_item_id,
         order_id,
-        sku, 
+        sku as product_id, 
         value as order_item_data
 
     from source
