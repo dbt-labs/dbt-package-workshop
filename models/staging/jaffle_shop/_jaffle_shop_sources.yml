@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    database: jaffle_shop_raw
-    schema: ecommerce
+    database: raw
+    schema: jaffle_shop
     tables:
       - name: customers
       - name: locations
