@@ -1,0 +1,30 @@
+supply_id,disposable_name,cost,is_perishable
+SUP-001,cutlery - knife,7,FALSE
+SUP-002,cutlery - fork,7,FALSE
+SUP-003,serving boat,11,FALSE
+SUP-004,napkin,4,FALSE
+SUP-005,16oz clear cup,13,FALSE
+SUP-006,16oz clear lid,4,FALSE
+SUP-007,biodegradable straw,13,FALSE
+SUP-008,chai mix,98,TRUE
+SUP-009,bread,33,TRUE
+SUP-010,cheese,20,TRUE
+SUP-011,nutella,46,TRUE
+SUP-012,banana,13,TRUE
+SUP-013,beef stew,169,TRUE
+SUP-014,lamb and pork bratwurst,234,TRUE
+SUP-015,house-pickled cabbage sauerkraut,43,TRUE
+SUP-016,mustard,7,TRUE
+SUP-017,pulled pork,215,TRUE
+SUP-018,pineapple,26,TRUE
+SUP-019,melon,33,TRUE
+SUP-020,minced beef,124,TRUE
+SUP-021,ghost pepper sauce,20,TRUE
+SUP-022,mango,32,TRUE
+SUP-023,tangerine,20,TRUE
+SUP-024,oatmilk,11,TRUE
+SUP-025,whey protein,36,TRUE
+SUP-026,coffee,52,TRUE
+SUP-027,french vanilla syrup,72,TRUE
+SUP-028,kiwi,20,TRUE
+SUP-029,lime,13,TRUE

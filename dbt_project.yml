@@ -38,3 +38,8 @@ models:
     # Config indicated by + and applies to all files under models/example/
     staging:
       +materialized: view
+
+seeds:
+  dbt_package_workshop:
+    +database: raw
+    +schema: jaffle_shop
