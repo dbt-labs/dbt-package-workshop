@@ -1,4 +1,5 @@
-Welcome to your new dbt project!
+# dbt Packages You Didn't Know You Needed
+![Coalesce 2022 Overview](https://user-images.githubusercontent.com/20958052/191366820-e39e606b-b081-4c09-9834-b2ff12164557.png)
 
 ### Using the starter project
 
