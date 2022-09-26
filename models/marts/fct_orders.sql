@@ -42,17 +42,21 @@ order_items_summary as (
 
         sum(case when products.is_food_item = 1 then price else 0 end) as subtotal_drink_items,
         sum(case when products.is_drink_item = 1 then price else 0 end) as subtotal_food_items,
-        sum(price) as subtotal
+        sum(price) as subtotal,
+
+        sum(supplies.supply_cost) as order_cost 
 
     from order_items
     inner join products 
         on order_items.product_id = products.product_id
+    inner join supplies
+        on products.product_id = supplies.product_id
 
     group by 1
 
 ),
 
-order_supplies_summary as (
+{# order_supplies_summary as (
 
     select
         order_id,
@@ -65,7 +69,7 @@ order_supplies_summary as (
     
     group by 1
 
-),
+), #}
 
 joined as (
 
@@ -80,7 +84,7 @@ joined as (
         order_items_summary.subtotal_food_items,
         order_items_summary.subtotal,
 
-        order_supplies_summary.order_cost,
+        order_items_summary.order_cost,
 
         -- rank this order for the customer
         row_number() over (
@@ -95,8 +99,8 @@ joined as (
         on orders.order_id = order_items_summary.order_id
     inner join locations 
         on orders.location_id = locations.location_id
-    inner join order_supplies_summary
-        on orders.order_id = order_supplies_summary.order_id
+--    inner join order_supplies_summary
+--        on orders.order_id = order_supplies_summary.order_id
 
 ),
 
