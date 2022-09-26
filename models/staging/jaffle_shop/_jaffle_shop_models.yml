@@ -40,4 +40,12 @@ models:
         tests: 
           - unique
           - not_null 
+
+  - name: stg_jaffle_shop__supplies
+    description: Staging model for the products data from our jaffle shop
+    columns:
+      - name: supply_uuid
+        tests: 
+          - unique
+          - not_null 
           
