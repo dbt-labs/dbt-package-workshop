@@ -4,4 +4,5 @@
     {% else %}
         have a nice day {{ target.user }}!
     {% endif %}
+    -- and I helped!
 {% endmacro %}
