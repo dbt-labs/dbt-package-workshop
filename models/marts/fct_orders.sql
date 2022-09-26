@@ -82,6 +82,8 @@ joined as (
 
         order_supplies_summary.order_cost,
 
+        (order_items_summary.subtotal - order_supplies_summary.order_cost) / order_items_summary.subtotal as order_profit_pct, 
+
         -- rank this order for the customer
         row_number() over (
             partition by orders.customer_id

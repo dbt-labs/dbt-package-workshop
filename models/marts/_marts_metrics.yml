@@ -1,0 +1,16 @@
+version: 2
+
+metrics:
+  - name: order_profit_pct
+    label: Average Profit Percentage
+    model: ref('fct_orders')
+    
+    timestamp: ordered_at
+    time_grains: [day, week, month]
+
+    calculation_method: average
+    expression: order_profit_pct
+
+    dimensions:
+      - is_drink_order
+      - is_food_order
