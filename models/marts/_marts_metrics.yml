@@ -1,8 +1,8 @@
 version: 2
 
 metrics:
-  - name: order_profit_pct
-    label: Average Profit Percentage
+  - name: average_order_profit_pct
+    label: Average Profit Percentage per Order
     model: ref('fct_orders')
     
     timestamp: ordered_at
