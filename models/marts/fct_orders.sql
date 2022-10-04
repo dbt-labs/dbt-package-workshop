@@ -52,6 +52,7 @@ order_items_summary as (
 
 ),
 
+<<<<<<< HEAD
 order_supplies_summary as (
 
     select
@@ -67,6 +68,8 @@ order_supplies_summary as (
 
 ),
 
+=======
+>>>>>>> a701b13 (Remove second join example)
 joined as (
 
     select
@@ -95,8 +98,11 @@ joined as (
         on orders.order_id = order_items_summary.order_id
     inner join locations 
         on orders.location_id = locations.location_id
+<<<<<<< HEAD
     inner join order_supplies_summary
         on orders.order_id = order_supplies_summary.order_id
+=======
+>>>>>>> a701b13 (Remove second join example)
 
 ),
 
