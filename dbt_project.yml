@@ -36,7 +36,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_package_workshop:
     # Config indicated by + and applies to all files under models/example/
-    marts:
+    models:
       +materialized: table
     staging:
       +materialized: view
