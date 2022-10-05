@@ -2,13 +2,13 @@
 
 {%- set query_prod -%}
 
-  select * from  checkpoint_2.fct_orders
+  select * from  checkpoint_1.fct_orders
 
 {%- endset -%}
 
 {%- set query_dev -%}
 
-  select * from {{ ref('fct_orders') }}
+  select {{ dbt_utils.star(from=ref('fct_orders'), except=['order_cost']) }} from {{ ref('fct_orders') }}
 
 {%- endset -%}
 
