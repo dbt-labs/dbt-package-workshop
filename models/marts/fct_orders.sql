@@ -59,15 +59,13 @@ order_items_summary as (
 joined as (
 
     select
-        orders.*,
-
-        order_items_summary.count_food_items,
-        order_items_summary.count_drink_items,
-        order_items_summary.count_items,
-
-        order_items_summary.subtotal_drink_items,
-        order_items_summary.subtotal_food_items,
-        order_items_summary.subtotal,
+        orders.location_id,
+        orders.customer_id,
+        orders.order_total,
+        orders.tax_paid,
+        orders.ordered_at,
+        locations.location_name,
+        order_items_summary.*,
 
         order_items_summary.order_cost,
 
@@ -75,9 +73,7 @@ joined as (
         row_number() over (
             partition by orders.customer_id
             order by orders.ordered_at
-        ) as customer_order_index,
-
-        locations.location_name
+        ) as customer_order_index
 
     from orders
     inner join order_items_summary 
