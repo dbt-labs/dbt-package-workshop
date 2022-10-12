@@ -30,7 +30,6 @@ supplies as (
 
 ),
 
-
 order_items_summary as (
 
     select
@@ -44,7 +43,7 @@ order_items_summary as (
         sum(case when products.is_drink_item = 1 then price else 0 end) as subtotal_food_items,
         sum(price) as subtotal,
 
-        sum(supplies.supply_cost) as order_cost 
+        sum(supplies.supply_cost) as order_cost
 
     from order_items
     inner join products 
@@ -56,51 +55,28 @@ order_items_summary as (
 
 ),
 
-{# order_supplies_summary as (
-
-    select
-        order_id,
-    
-        sum(supplies.supply_cost) as order_cost
-
-    from order_items
-    inner join supplies 
-        on supplies.product_id = order_items.product_id
-    
-    group by 1
-
-), #}
-
 joined as (
 
     select
-        orders.*,
-
-        order_items_summary.count_food_items,
-        order_items_summary.count_drink_items,
-        order_items_summary.count_items,
-
-        order_items_summary.subtotal_drink_items,
-        order_items_summary.subtotal_food_items,
-        order_items_summary.subtotal,
-
-        order_items_summary.order_cost,
+        orders.location_id,
+        orders.customer_id,
+        orders.order_total,
+        orders.tax_paid,
+        orders.ordered_at,
+        locations.location_name,
+        order_items_summary.*,
 
         -- rank this order for the customer
         row_number() over (
             partition by orders.customer_id
             order by orders.ordered_at
-        ) as customer_order_index,
-
-        locations.location_name
+        ) as customer_order_index
 
     from orders
     inner join order_items_summary 
         on orders.order_id = order_items_summary.order_id
     inner join locations 
         on orders.location_id = locations.location_id
---    inner join order_supplies_summary
---        on orders.order_id = order_supplies_summary.order_id
 
 ),
 
