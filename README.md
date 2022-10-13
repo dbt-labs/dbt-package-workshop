@@ -5,19 +5,19 @@ This is the companion repo to the 2022 Coalesce New Orleans Workshop - [dbt Pack
 
 ## How to use this repo
 
-The `dbt_package_workshop` project uses [dbt-demo-data](https://github.com/dbt-labs/dbt-demo-data) and was developed for BigQuery and Snowflake. It can be executed on any data platform for which there is a [dbt adapter](https://docs.getdbt.com/docs/supported-data-platforms), but may require modification.
+The `dbt_package_workshop` project uses [dbt-demo-data](https://github.com/dbt-labs/dbt-demo-data) and was developed for Snowflake. It can be executed on any data platform for which there is a [dbt adapter](https://docs.getdbt.com/docs/supported-data-platforms), but may require modification.
 
-Once you have dbt-demo-data available in your data warehouse of choice, update your source with the correct object names and you're ready to go. Follow along with the slides [here](#).
+Once you have dbt-demo-data available in your data warehouse of choice, update your source with the correct object names and you're ready to go. Follow along with the slides [here](https://docs.google.com/presentation/d/1AJloEsUheRYUoJxfYJW-jWj34zIr3nRsr6EZHDEMv8M/edit?usp=sharing).
 
 ### Branches
 
 There are four protected branches to serve as checkpoints during the workshop:
 | Branch                         | Slide |
 |--------------------------------|-------|
-| `_checkpoint_1_start`          | [X](#) |
-| `_checkpoint_2_add_new_source` | [X](#) |
-| `_checkpoint_3_fix_new_source` | [X](#) |
-| `_checkpoint_4_add_metrics`    | [X](#) |
+| `_checkpoint_1_start`          | [15](https://docs.google.com/presentation/d/1AJloEsUheRYUoJxfYJW-jWj34zIr3nRsr6EZHDEMv8M/edit#slide=id.g1551bedafec_0_46) |
+| `_checkpoint_2_add_new_source` | [23](https://docs.google.com/presentation/d/1AJloEsUheRYUoJxfYJW-jWj34zIr3nRsr6EZHDEMv8M/edit#slide=id.g1551bedafec_0_97) |
+| `_checkpoint_3_fix_new_source` | [32](https://docs.google.com/presentation/d/1AJloEsUheRYUoJxfYJW-jWj34zIr3nRsr6EZHDEMv8M/edit#slide=id.g1551bedafec_0_132) |
+| `_checkpoint_4_add_metrics`    | [39](https://docs.google.com/presentation/d/1AJloEsUheRYUoJxfYJW-jWj34zIr3nRsr6EZHDEMv8M/edit#slide=id.g15ffcf224c8_0_4) |
 
 ## dbt Packages
 One of the benefits of using dbt is the robust package ecosystem. As an analytics engineer, you can leverage vetted solutions to common problems distributed in packages and focus your own development efforts on your organization's unique business logic. The `dbt_package_workshop` project serves as an example of how to leverage dbt Labs maintained dbt packages [codegen](https://github.com/dbt-labs/dbt-codegen), [audit-helper](https://github.com/dbt-labs/dbt-audit-helper), and [metrics](https://github.com/dbt-labs/dbt_metrics) to speed your time-to-value when adding a new source table to an existing dbt project.
