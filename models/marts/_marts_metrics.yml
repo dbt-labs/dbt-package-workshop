@@ -1,0 +1,16 @@
+version: 2
+
+metrics:
+  - name: average_order_cost
+    label: Average Cost per Order
+    model: ref('fct_orders')
+    
+    timestamp: ordered_at
+    time_grains: [day, week, month]
+
+    calculation_method: average
+    expression: order_cost
+
+    dimensions:
+      - is_drink_order
+      - is_food_order
