@@ -24,6 +24,12 @@ locations as (
 
 ),
 
+supplies as (
+
+    select * from {{ ref('stg_jaffle_shop__supplies') }}
+
+),
+
 order_items_summary as (
 
     select
@@ -35,11 +41,14 @@ order_items_summary as (
 
         sum(case when products.is_food_item = 1 then price else 0 end) as subtotal_drink_items,
         sum(case when products.is_drink_item = 1 then price else 0 end) as subtotal_food_items,
-        sum(price) as subtotal
+        sum(price) as subtotal,
+        sum(supplies.supply_cost) as order_cost
 
     from order_items
     inner join products 
         on order_items.product_id = products.product_id
+    inner join supplies
+        on products.product_id = supplies.product_id
 
     group by 1
 
