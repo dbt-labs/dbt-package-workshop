@@ -24,6 +24,13 @@ locations as (
 
 ),
 
+supplies as (
+
+    select * from {{ ref('stg_jaffle_shop__supplies') }}
+
+),
+
+
 order_items_summary as (
 
     select
@@ -45,6 +52,21 @@ order_items_summary as (
 
 ),
 
+order_supplies_summary as (
+
+    select
+        order_id,
+    
+        sum(supplies.supply_cost) as order_cost
+
+    from order_items
+    inner join supplies 
+        on supplies.product_id = order_items.product_id
+    
+    group by 1
+
+),
+
 joined as (
 
     select
@@ -55,6 +77,8 @@ joined as (
         orders.ordered_at,
         locations.location_name,
         order_items_summary.*,
+
+        order_supplies_summary.order_cost,
 
         -- rank this order for the customer
         row_number() over (
@@ -67,6 +91,8 @@ joined as (
         on orders.order_id = order_items_summary.order_id
     inner join locations 
         on orders.location_id = locations.location_id
+    inner join order_supplies_summary
+        on orders.order_id = order_supplies_summary.order_id
 
 ),
 
