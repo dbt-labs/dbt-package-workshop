@@ -1,5 +1,9 @@
 with 
 
+supplies as (
+    select * from {{ ref('stg_jaffle_shop__supplies') }}
+),
+
 orders as (
 
     select * from {{ ref('stg_jaffle_shop__orders') }}
@@ -33,6 +37,8 @@ order_items_summary as (
         sum(products.is_drink_item) as count_drink_items,
         count(*) as count_items,
 
+        sum(supplies.supply_cost) as order_cost,
+
         sum(case when products.is_food_item = 1 then price else 0 end) as subtotal_drink_items,
         sum(case when products.is_drink_item = 1 then price else 0 end) as subtotal_food_items,
         sum(price) as subtotal
@@ -40,8 +46,12 @@ order_items_summary as (
     from order_items
     inner join products 
         on order_items.product_id = products.product_id
+    inner join supplies
+        on products.product_id = supplies.product_id
 
     group by 1
+
+    order by 5
 
 ),
 
